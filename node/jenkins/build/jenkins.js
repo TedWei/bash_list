@@ -2,7 +2,6 @@ const https = require('https');
 const querystring = require('querystring');
 const fs = require('fs');
 const path = require('path');
-// const ca = fs.readFileSync(path.join(__dirname, 'iZ23b9swkzzZ.pem'))
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0
 
@@ -20,10 +19,9 @@ function jenkins(options) {
   options.auth = options.user + ':' + options.password;
 
     var _setting = {
-        host: 'jenkins.sofu580.cn',
+        host: 'jenkins.io',
         method: 'POST',
-        // ca: ca,
-        job:'Deve_Static_H5',
+        job:'new_app',
         auth: ':',
         postData:"",
 
@@ -53,7 +51,5 @@ function jenkins(options) {
     req.write(setting.postData);
     req.end();
 }
-
-// jenkins({})
 
 module.exports = jenkins
